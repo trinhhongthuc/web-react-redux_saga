@@ -1,0 +1,36 @@
+@import "../base/base.scss";
+
+.header {
+  background: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 80px;
+  &-heading {
+    // font-size: 100px;
+    color: $color-secondary;
+  }
+  &-nav {
+  }
+  &-nav-ul {
+    display: flex;
+    margin: 0;
+  }
+  &-nav-ul-li {
+    font-size: 1.6rem;
+
+    padding: 0 15px 8px 15px;
+    list-style: none;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  &-nav-ul-li a:hover {
+    padding-bottom: 32px;
+    border-bottom: 3px solid $color-secondary;
+    transition: all 0.5s ease-in-out;
+    color: #fff;
+  }
+}
