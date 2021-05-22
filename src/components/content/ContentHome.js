@@ -15,7 +15,6 @@ const ContentHome = () => {
   }, [dispatch]);
 
   const { data, isLoading } = useSelector((state) => state.reducers);
-  console.log(data);
 
   return (
     <>
@@ -25,7 +24,7 @@ const ContentHome = () => {
             <div className="wrapper-container">
               <Router>
                 <h3 className="title-production-title">Latest Product</h3>
-                <Link className="title-production-link">
+                <Link to="#" className="title-production-link">
                   View All Product <AiOutlineRight />
                 </Link>
               </Router>
@@ -35,13 +34,18 @@ const ContentHome = () => {
       </div>
       <div className="container">
         <div className="row">
-          {data.map((item) => {
-            return (
-              <div className="col-xl-4 col-lg-4">
-                <BoxItemProduct data={item} />
-              </div>
-            );
-          })}
+          {isLoading ? (
+            <p> loading... </p>
+          ) : (
+            data.map((item) => {
+              return (
+                <div key={item._id} className="col-xl-4 col-lg-4">
+                  <BoxItemProduct data={item} />
+                </div>
+              );
+            })
+          )}
+          {}
         </div>
       </div>
 

@@ -7,7 +7,12 @@
     &-text {
         text-align: center;
         text-transform: uppercase;
+        padding-top: 20px;
     }
     &-text-span {
     }
+}
+
+.border-footer {
+    border-top: 1px solid #ccc;
 }
