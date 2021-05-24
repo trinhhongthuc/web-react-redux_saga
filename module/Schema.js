@@ -7,8 +7,8 @@ const schema = new mongoose.Schema(
       required: true,
     },
     price: {
-      type: Number,
-      required: true,
+      type: String,
+      // required: true,
       default: 0,
     },
     description: {
