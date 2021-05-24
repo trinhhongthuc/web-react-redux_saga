@@ -5,10 +5,15 @@ import { useSelector, useDispatch } from "react-redux";
 import typeActions from "../../redux/typeAction";
 import BoxItemProduct from "../content/BoxItemProduct";
 import PaginationProduct from "../content/panigation";
+import { removeSelectedProduct } from "../../redux/actions/actions";
 const Products = () => {
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch({ type: typeActions.GET_PRODUCTS_SAGA });
+
+    return () => {
+      dispatch(removeSelectedProduct());
+    };
   }, [dispatch]);
   const data = useSelector((state) => state.reducers.data);
   return (

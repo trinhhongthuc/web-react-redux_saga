@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-} from "react-router-dom";
-import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 import "../sass/style.scss";
-import Home from "./Home";
-import Products from "./Products";
 
 const Header = () => {
   return (
@@ -27,11 +19,14 @@ const Header = () => {
                 <li className="header-nav-ul-li">
                   <NavLink to="/product">Our Product</NavLink>
                 </li>
-                <li className="header-nav-ul-li">
+                {/* <li className="header-nav-ul-li">
                   <NavLink to="/about">About Us</NavLink>
                 </li>
                 <li className="header-nav-ul-li">
                   <NavLink to="/contact">Contact Us</NavLink>
+                </li> */}
+                <li className="header-nav-ul-li">
+                  <NavLink to="/admin">Admin</NavLink>
                 </li>
               </ul>
             </nav>

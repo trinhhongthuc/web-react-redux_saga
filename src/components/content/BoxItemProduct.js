@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardImg,
@@ -8,25 +9,22 @@ import {
   CardSubtitle,
   Button,
 } from "reactstrap";
-
-import product1 from "../img/product_01.jpg";
-import product2 from "../img/product_02.jpg";
-import product3 from "../img/product_03.jpg";
-import product4 from "../img/product_04.jpg";
-import product5 from "../img/product_05.jpg";
-
 const BoxItemProduct = ({ data }) => {
   return (
     <div>
-      <Card>
-        <CardImg top width="100%" src={product1} alt="Card image cap" />
+      <Card className="card-box">
+        <Link to={`/product/${data._id}`}>
+          <CardImg top width="100%" src={data.img} alt="Card image cap" />
+        </Link>
         <CardBody>
-          <CardTitle tag="h5">{data.title}</CardTitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">
+          <CardTitle tag="h3">{data.title}</CardTitle>
+          <CardSubtitle tag="h5" className="mb-2 text-muted">
             $ {data.price}
           </CardSubtitle>
-          <CardText>{data.description}</CardText>
-          <Button>Buy Now</Button>
+          <CardText className="product-description">
+            {data.description}
+          </CardText>
+          <Button className="button-buy">Buy Now</Button>
         </CardBody>
       </Card>
     </div>

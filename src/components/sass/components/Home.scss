@@ -87,7 +87,15 @@
     font-size: 1.6rem !important;
 }
 
-// .introduce {
-//     padding: 4rem 0;
-//     border-bottom: 1px solid #ccc;
-// }
+.introduce {
+    padding-top: 4rem;
+}
+
+.loading-product {
+    width: 150px;
+    height: 150px;
+    background-image: url("../../img/Spinner-1s-200px.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    // background-size: cover;
+}

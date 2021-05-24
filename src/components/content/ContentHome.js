@@ -1,4 +1,4 @@
-import React, { useEffect, useCallbacks } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import BoxItemProduct from "./BoxItemProduct";
 import { AiOutlineRight } from "react-icons/ai";
@@ -6,15 +6,18 @@ import IntroduceProduct from "./IntroduceProduct";
 
 import { useDispatch, useSelector } from "react-redux";
 import typeActions from "../../redux/typeAction";
+import { removeSelectedProduct } from "../../redux/actions/actions";
 
 const ContentHome = () => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch({ type: typeActions.GET_PRODUCTS_SAGA });
-  }, [dispatch]);
-
   const { data, isLoading } = useSelector((state) => state.reducers);
+  useEffect(() => {
+    dispatch({ type: typeActions.GET_PRODUCTS_HOME_SAGA });
+
+    return () => {
+      dispatch(removeSelectedProduct());
+    };
+  }, [dispatch]);
 
   return (
     <>
@@ -35,7 +38,7 @@ const ContentHome = () => {
       <div className="container">
         <div className="row">
           {isLoading ? (
-            <p> loading... </p>
+            <p className="loading-product"></p>
           ) : (
             data.map((item) => {
               return (
